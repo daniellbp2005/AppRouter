@@ -1,8 +1,15 @@
 import Image from "next/image";
 import styles from "./page.module.css"
 import './home.css';
+import BannerCta from "@/components/bannerCTA";
 
-export default function Home() {
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+export default async function Home() {
+
+  // await sleep(3500);
+  // throw new Error("Erro Simulado !!!");
+
   return (
     <>
       <main>
@@ -16,6 +23,7 @@ export default function Home() {
             <img src="/img/Darth-Vader.webp" alt="" />
           </div>
         </section>
+        <BannerCta />
       </main>
     </>
   );
