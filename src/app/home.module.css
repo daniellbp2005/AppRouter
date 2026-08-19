@@ -1,0 +1,40 @@
+.conteiner{
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    padding: 12px;
+}
+
+.png .img{
+  width: 800px;
+  height: auto;
+}
+
+.menu .box p{
+  max-width: 300px;
+}
+
+.menu{
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue ;
+}
+
+
+.btn{
+  padding: 12px;
+  border: rgb(0, 0, 0) 2px solid;
+  background-color: #171717;
+  color: #ffffff;
+  transition: transform .2s ease-in-out;
+}
+
+.btn:hover{
+  transform: scale(1.05);
+  box-shadow: 7px 5px 5px;
+}

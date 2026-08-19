@@ -27,3 +27,18 @@ ctrl + shft + v
 Dois arquivos page.jsx na mesma pasta no podem coexistir
 Somente um page.jsx por vez
 arquivos layouts se sobrepoem, dentro dele só vai aparecer um 'page.jsx'
+
+18/09
+
+No lugar de usar a tag img, a boa prática no next á usar <Image/> q é uma versão otimizada do img
+nele é obrigatório colocar o width e height na própria tag. E antes tem q importar ele : import Image from "next/link".
+
+Qnd estiver no css local da página, nas tags principas é obrigatório colocar classNamep chamar no css, caso contraro da erro.
+
+Para fazer a componentização de componentes, é necessario primeiro criar o .jsx e dps o .css dele, por ultim chame ele no layout.jsx:
+1- haeder.jsx - vai ter nele o cs desse componente
+
+2 - no Layput vai ter q chamar esse file, import Header from "./componentes/header";
+
+3- dps só colocar no código onde ele vai ficar assim:
+<Header />
