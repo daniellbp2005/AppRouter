@@ -21,6 +21,7 @@ a:hover{
 
 body{
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #2a2a2a;
 }
 
 main{
@@ -262,7 +263,6 @@ footer{
 .conteiner{
   width: 100%;
   margin: auto;
-  background-color: #F0F8FF;
 }
 
 .flex{

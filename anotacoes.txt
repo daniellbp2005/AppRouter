@@ -27,3 +27,5 @@ ctrl + shft + v
 Dois arquivos page.jsx na mesma pasta no podem coexistir
 Somente um page.jsx por vez
 arquivos layouts se sobrepoem, dentro dele só vai aparecer um 'page.jsx'
+
+qnd criar componemtes eu posso criar a pasta com o nome do componente e dentro colocar o index.jsx, e seu css
