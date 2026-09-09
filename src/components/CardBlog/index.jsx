@@ -1,8 +1,13 @@
+'use client'
 import './cardBlog.css';
+import { motion } from "motion/react"
 
 export default function CardBlog({ titulo, imagem, hora, desc, subTitulo }) {
     return (
-        <div className="card-wrap">
+        <motion.div className="card-wrap"
+        whileHover={{scale: 1.01,y:-5, boxShadow: "0 5px 15px rgba(0,0,0,0.3)"}}
+        transition={{duration: 0.1}}
+        >
             <div className="left">
                 <img src={imagem} />
             </div>
@@ -12,6 +17,6 @@ export default function CardBlog({ titulo, imagem, hora, desc, subTitulo }) {
                 <p>{desc}</p>
                 <p className="menor"><i>Hora: {hora}</i></p>
             </div>
-        </div>
+        </motion.div>
     )
 }

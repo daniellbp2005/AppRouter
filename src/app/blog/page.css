@@ -36,5 +36,13 @@ section .conteiner-section{
     color: #fff020;
 }
 
+.conteinerGrid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px, 300px));
+    grid-auto-flow: row dense;
+    gap: 20px;
+    width:100%
+}
+
 
 

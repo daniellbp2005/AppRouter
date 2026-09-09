@@ -1,5 +1,8 @@
+"use client";
 import CardBlog from '@/components/CardBlog';
 import './page.css';
+import { motion, AnimatePresence } from "motion/react";
+import { animate } from 'motion';
 
 export default function BlogPage() {
 
@@ -27,16 +30,23 @@ export default function BlogPage() {
                 <div className="row2">
                     <h2>Blog ByteHaus</h2>
                 </div>
-                {listaNoticias.map((p) => {
-                    return <CardBlog
-                        key={p.id}
-                        subTitulo={p.subTitulo}
-                        titulo={p.titulo}
-                        desc={p.desc}
-                        imagem={p.imagem}
-                        hora={p.hora}
-                    />
-                })}
+                <AnimatePresence>
+                    <motion.div className="conteinerGrid"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{duration: 0.5}}>
+                        {listaNoticias.map((p) => {
+                            return <CardBlog
+                                key={p.id}
+                                subTitulo={p.subTitulo}
+                                titulo={p.titulo}
+                                desc={p.desc}
+                                imagem={p.imagem}
+                                hora={p.hora}
+                            />
+                        })}
+                    </motion.div>
+                </AnimatePresence>
             </div>
         </>
     );

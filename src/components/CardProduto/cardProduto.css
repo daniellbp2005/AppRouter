@@ -7,13 +7,12 @@
     background-color: #fff;
     border: 1px solid #333;
     color: black;
-    transition: transform .2s ease-in-out;
 }
 
-.card-wrap:hover{
+/* .card-wrap:hover{
     transform: translateY(-3px);
     box-shadow: 2px 5px 30px #33333349;
-}
+} */
 
 .card-wrap img{
     height: auto;

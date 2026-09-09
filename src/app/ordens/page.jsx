@@ -1,15 +1,42 @@
 "use client"
 import { useState } from "react";
 import "./ordem.css";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 
 export default function Ordens() {
-    const [ordens, setOrdens] = useState([]);
+    const lista = [
+        {
+            id: 1,
+            cliente: "Gabriel",
+            equipamento: "Mochila",
+            descricao: "Amigo quebrou"
+        },
+        {
+            id: 2,
+            cliente: "Lucas",
+            equipamento: "Lápis",
+            descricao: "Sumiu em casa"
+        },
+        {
+            id: 3,
+            cliente: "Felipe",
+            equipamento: "Estojo",
+            descricao: "Rasgou na escola"
+        },
+        {
+            id: 4,
+            cliente: "Ana",
+            equipamento: "Tesoura",
+            descricao: "Ficou cega"
+        },
+    ];
+
+    const [ordens, setOrdens] = useState(lista);
     const [cliente, setCliente] = useState("");
     const [equipamento, setEquipamento] = useState("");
     const [descricao, setDescricao] = useState("");
     const [erro, setErro] = useState("");
-    console.log(ordens);
+    const [visivel, setVisivel] = useState(true);
 
     function cadastrarOrdem(event) {
         event.preventDefault();
@@ -19,7 +46,7 @@ export default function Ordens() {
             equipamento.trim() === "" ||
             descricao.trim() === ""
         ) {
-            setErro("Preenceh os dados do form");
+            setErro("Preencha o formulário");
             return;
         }
 
@@ -43,70 +70,94 @@ export default function Ordens() {
     return (
 
         <main>
-            <div className="form-content">
-                <h1>Ordens de Serviço</h1>
-                <form onSubmit={cadastrarOrdem}>
-                    <div className="row">
-                        <label htmlFor="cliente">Cliente:</label>
-                        <input
-                            type="text"
-                            name="cliente"
-                            id="cliente"
-                            placeholder="Nome do Cliente"
-                            value={cliente}
-                            onChange={(event) => setCliente(event.target.value)}
-                        />
-                    </div>
-                    <div className="row">
-                        <label htmlFor="equipamento">Equipamento:</label>
-                        <input
-                            className="a"
-                            type="text"
-                            name="equipamento"
-                            id="equipamento"
-                            placeholder="Nome do Equipamento"
-                            value={equipamento}
-                            onChange={(event) => setEquipamento(event.target.value)}
-                        />
-                    </div>
-                    <div className="row">
-                        <div className="content-area">
-                            <label htmlFor="descricao">Descriçaõ:</label>
-                            <textarea
-                                maxLength={100}
-                                minLength={15}
-                                id="descricao"
-                                placeholder="Nome do Descriçaõ"
-                                value={descricao}
-                                onChange={(event) => setDescricao(event.target.value)}
+            <div className="row-btn">
+                <button command="show-modal" commandfor="modal-formulario">Abrir Cadastro</button>
+                <button type="button" onClick={() => setVisivel(!visivel)}>
+                    {visivel ? "Esconder tabela" : "Mostrar tabela"}
+                </button>
+            </div>
+            {/* motion + dialog === "Não rola" */}
+            <dialog className="form-content" id="modal-formulario"> 
+                <motion.div className="mot" initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}>
+                    <h1>Ordens de Serviço</h1>
+                    <form onSubmit={cadastrarOrdem}>
+                        <div className="row">
+                            <label htmlFor="cliente">Cliente:</label>
+                            <input
+                                type="text"
+                                name="cliente"
+                                id="cliente"
+                                placeholder="Nome do Cliente"
+                                value={cliente}
+                                onChange={(event) => setCliente(event.target.value)}
                             />
                         </div>
-                    </div>
-                    {erro != "" && <p>{erro}</p>}
-                    <button type="submit">Cadastrar Ordem</button>
-                </form>
-            </div>
+                        <div className="row">
+                            <label htmlFor="equipamento">Equipamento:</label>
+                            <input
+                                className="a"
+                                type="text"
+                                name="equipamento"
+                                id="equipamento"
+                                placeholder="Nome do Equipamento"
+                                value={equipamento}
+                                onChange={(event) => setEquipamento(event.target.value)}
+                            />
+                        </div>
+                        <div className="row">
+                            <div className="content-area">
+                                <label htmlFor="descricao">Descriçaõ:</label>
+                                <textarea
+                                    maxLength={100}
+                                    minLength={15}
+                                    id="descricao"
+                                    placeholder="Nome do Descriçaõ"
+                                    value={descricao}
+                                    onChange={(event) => setDescricao(event.target.value)}
+                                />
+                            </div>
+                        </div>
+                        {erro != "" && <p className="msgErro" ><i>{erro}</i></p>}
+                        <div className="row">
+                            <button>Cadastrar Ordem</button>
+                            <button type="button" command="close" commandfor="modal-formulario">Fechar</button>
+                        </div>
+                    </form>
+                </motion.div>
+            </dialog>
 
 
-            <table>
-                {/* <button>fechar ordens d serviço</button> */}
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nome</th>
-                        <th>Equipamento</th>
-                        <th>Descrição</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><p>Id:{ordens.map((p) => (p.id))}</p></td>
-                        <td><p>Nome:{ordens.map((p) => (p.cliente))}</p></td>
-                        <td><p>Equipameto:{ordens.map((p) => (p.equipamento))}</p></td>
-                        <td><p>Descriçaõ:{ordens.map((p) => (p.descricao))}</p></td>
-                    </tr>
-                </tbody>
-            </table>
+            <AnimatePresence>
+                {visivel && (
+                    <motion.table
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                    >
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nome</th>
+                                <th>Equipamento</th>
+                                <th>Descrição</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {ordens.map((p, i) =>
+                                <motion.tr key={p.id}
+                                    intial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: i * 0.1 }}>
+                                    <td>Id:{p.id}</td>
+                                    <td>Nome:{p.cliente}</td>
+                                    <td>Equipamento:{p.equipamento}</td>
+                                    <td>Descrição:{p.descricao}</td>
+                                </motion.tr>)}
+                        </tbody>
+                    </motion.table>
+                )}
+            </AnimatePresence>
         </main>
     );
 }

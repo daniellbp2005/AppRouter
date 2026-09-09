@@ -2,21 +2,17 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    flex-direction: row;
+    flex-direction: column;
     background-color: #333;
     color: #fff;
     width: 60%;
     border: 0.5px solid #16161685;
     border-radius: 16px;
-    transition: transform .2s ease-in-out;
     padding: 8px 6px;
     cursor: pointer;
+    width:100%
 }
 
-.card-wrap:hover{
-    transform: translateY(-3px);
-    box-shadow: 3px 5px 12px black;
-}
 
 .left{
     width: 300px;
@@ -31,10 +27,12 @@
 
 h3{
     color: #fff020;
+    font-size: small;
 }
 
 h1{
     color: #3856db;
+    font-size: medium;
 }
 
 .menor{
@@ -46,7 +44,7 @@ h1{
     justify-content: center;
     align-self: flex-start;
     flex-direction: column;
-    width: 60%;
+    width: 100%;
     gap: 12px;
     padding-left: 12px;
 }
