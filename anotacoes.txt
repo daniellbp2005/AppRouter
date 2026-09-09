@@ -29,3 +29,10 @@ Somente um page.jsx por vez
 arquivos layouts se sobrepoem, dentro dele só vai aparecer um 'page.jsx'
 
 qnd criar componemtes eu posso criar a pasta com o nome do componente e dentro colocar o index.jsx, e seu css
+
+hook, aparece dps da versão de react versão 16.8
+
+ssr -> server side rendering - manda
+csr -> client side rendering - recebe
+
+servidores n conseguem rodar hooks, p rederiza-los precisamos usar 'use client'. E isso faz usar a redenrização do meu user
