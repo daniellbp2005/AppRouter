@@ -1,3 +1,4 @@
+'use client'
 import "./header.css";
 import Link from "next/link"
 
@@ -24,7 +25,7 @@ export default function Header() {
               <li><Link href={"/sobre/empresa"}>Sobre Empresa</Link></li>
               <div className="dropdown-menu">
                 <ul>
-                  <li className="li-drop"><Link href={"/"}>Funcionou</Link></li>
+                  <li className="li-drop"><Link href={"/daniel"}>Funcionou</Link></li>
                   <li className="li-drop"><Link href={"/"}>Funcionou</Link></li>
                   <li className="li-drop"><Link href={"/"}>Funcionou</Link></li>
                 </ul>
