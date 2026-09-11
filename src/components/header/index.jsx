@@ -7,7 +7,7 @@ export default function Header() {
     <header>
       <div className="lado-e">
         <ul>
-          <img src="/img/logo.png" alt="" />
+          <img src="/img/logo.png" alt="" className="img" />
           <div className="dad">
             <li><Link href={"/"}>Home</Link></li>
           </div>
@@ -25,7 +25,7 @@ export default function Header() {
               <li><Link href={"/sobre/empresa"}>Sobre Empresa</Link></li>
               <div className="dropdown-menu">
                 <ul>
-                  <li className="li-drop"><Link href={"/daniel"}>Funcionou</Link></li>
+                  <li className="li-drop"><Link href={"/daniel"}>Silk</Link></li>
                   <li className="li-drop"><Link href={"/"}>Funcionou</Link></li>
                   <li className="li-drop"><Link href={"/"}>Funcionou</Link></li>
                 </ul>

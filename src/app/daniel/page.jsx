@@ -2,14 +2,14 @@
 import Card from "@/components/error-body";
 import "./daniel.css";
 import Silk from './Silk';
-import { motion, AnimatePresence} from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
 
 export default function Test() {
 
     const [index, setIndex] = useState(0);
     const palavras = [
-        " Funcionou", " Foi", " Consegui"
+        " Fiz", " Fui", " Consegui"
     ]
 
     useEffect(() => {
@@ -43,7 +43,7 @@ export default function Test() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}>
                 <h1>Welcome to the Silk Demo</h1>
-                <p>Eu sou 
+                <p>Eu
                     <AnimatePresence mode="wait">
                         <motion.span className="palavras" key={palavras[index]}
                             initial={{ opacity: 0, y: 20 }}

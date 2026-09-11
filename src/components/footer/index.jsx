@@ -43,7 +43,7 @@ export default function Header() {
         </div>
         <div className="row-footer"></div>
         <div className="footer-bottom">
-          <span>© 2026 BYTEHAUS Tech Portal. All rights reserved.</span>
+          <span><i>© 2026 BYTEHAUS Tech Portal. All rights reserved.</i></span>
         </div>
       </div>
     </footer>
