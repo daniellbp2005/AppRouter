@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./cont.css";
 
 export default function Contador() {
@@ -11,6 +11,8 @@ export default function Contador() {
             return
         }
         setContador(contador + 1);
+        // console.log(contador);
+
     }
 
     function remUmCont() {
@@ -20,6 +22,10 @@ export default function Contador() {
         }
         setContador(contador - 1)
     }
+
+    useEffect(() => {
+        console.log(contador), [contador];
+    })
 
     return (
         <>

@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Inter, Open_Sans, Montserrat } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Open_Sans, Montserrat, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 // import Link from "next/link";
 import Header from "@/components/header/index";
@@ -29,6 +29,11 @@ const mont = Montserrat({
   weight: ["400", "700"]
 })
 
+const space = Space_Grotesk({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"]
+})
+
 export const metadata = {
   title: "Primeira aplicação nextjs",
   description: "Aprendendo ecossistema react",
@@ -36,7 +41,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pt-br" className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${open_sans.variable} ${mont.variable}`}>
+    <html lang="pt-br" className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${open_sans.variable} ${mont.variable} ${space.variable}`}>
       <body>
         <Header />
         {children}

@@ -36,3 +36,10 @@ ssr -> server side rendering - manda
 csr -> client side rendering - recebe
 
 servidores n conseguem rodar hooks, p rederiza-los precisamos usar 'use client'. E isso faz usar a redenrização do meu user
+
+useEffect: um dos jeito q usamos é qnd queremos monitorar uma variavél
+->
+o ciclo de useEfecct começa qnd a tela carrega
+
+o ciclo é:
+nasc,altera,die
