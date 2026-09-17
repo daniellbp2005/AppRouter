@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono, Inter, Open_Sans, Montserrat, Space_Grotesk } from "next/font/google";
+import { Geist, Geist_Mono, Inter, Open_Sans, Montserrat, Space_Grotesk, Sora } from "next/font/google";
 import "./globals.css";
 // import Link from "next/link";
 import Header from "@/components/header/index";
@@ -34,6 +34,11 @@ const space = Space_Grotesk({
   subsets: ["latin"]
 })
 
+const sora = Sora({
+  weight: ["400","500","600"],
+  subsets: ["latin"]
+})
+
 export const metadata = {
   title: "Primeira aplicação nextjs",
   description: "Aprendendo ecossistema react",
@@ -41,7 +46,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="pt-br" className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${open_sans.variable} ${mont.variable} ${space.variable}`}>
+    <html lang="pt-br" className={`${geistSans.variable} ${geistMono.variable} ${inter.variable} ${open_sans.variable} ${mont.variable} ${space.variable} ${sora.variable}`}>
       <body>
         <Header />
         {children}

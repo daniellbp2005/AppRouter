@@ -1,7 +1,7 @@
 "use client"
 import { p } from "motion/react-m";
 import { useEffect, useState } from "react"
-import duuum from "@/app/apiDummy/function";
+import duuum from "@/components/funcaoGetDAdos/function";
 
 export default function Usuarios() {
 
